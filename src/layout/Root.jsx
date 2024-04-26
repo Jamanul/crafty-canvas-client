@@ -1,11 +1,11 @@
-import React from 'react';
+
 import { Outlet } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 const Root = () => {
     return (
-        <div>
+        <div className='font-lato'>
             <Navbar></Navbar>
             <Outlet></Outlet>
             <Footer></Footer>
