@@ -1,13 +1,13 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
     const links =<>
-    <li><NavLink to='/'>Home</NavLink></li>
-    <li><NavLink to='all-arts-craft'>All Arts and Crafts</NavLink></li>
-    <li><NavLink to='add-arts-craft'>Add Craft Items</NavLink></li>
-    <li><NavLink to='my-arts-craft-list'>My Art&Craft List</NavLink></li>
-    <li><NavLink to='register'>Register</NavLink></li>
+    <li><NavLink to='/' className={({isActive})=>isActive ? 'text-[#A55E3F] border-b border-[#A55E3F] rounded-none bg-none':'text-[#A55E3F]'}>Home</NavLink></li>
+    <li><NavLink to='all-arts-craft' className={({isActive})=>isActive ? 'text-[#A55E3F] border-b border-[#A55E3F] rounded-none bg-none':'text-[#A55E3F]'}>All Arts and Crafts</NavLink></li>
+    <li><NavLink to='add-arts-craft'  className={({isActive})=>isActive ? 'text-[#A55E3F] border-b border-[#A55E3F] rounded-none bg-none':'text-[#A55E3F]'}>Add Craft Items</NavLink></li>
+    <li><NavLink to='my-arts-craft-list' className={({isActive})=>isActive ? 'text-[#A55E3F] border-b border-[#A55E3F] rounded-none bg-none':'text-[#A55E3F]'}>My Art&Craft List</NavLink></li>
+    <li><NavLink to='register' className={({isActive})=>isActive ? 'text-[#A55E3F] border-b border-[#A55E3F] rounded-none bg-none':'text-[#A55E3F]'}>Register</NavLink></li>
         
     </>
     return (
@@ -21,7 +21,7 @@ const Navbar = () => {
         {links}
       </ul>
     </div>
-    <a className="btn btn-ghost text-xl">Crafty Canvas</a>
+    <Link to='/' className="btn btn-ghost text-[#A55E3F] text-xl md:text-2xl">Crafty Canvas</Link>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
@@ -29,6 +29,7 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
+  <NavLink to='/login' className="btn bg-[#A55E3F] text-white">Log In</NavLink>
   <div className="dropdown dropdown-end">
       <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
         <div className="w-10 rounded-full">
@@ -46,7 +47,7 @@ const Navbar = () => {
         <li><a>Logout</a></li>
       </ul>
     </div>
-    <a className="btn">Button</a>
+    
   </div>
 </div>
     );
