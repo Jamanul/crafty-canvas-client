@@ -8,9 +8,10 @@ const Login = () => {
     const {signInUser}=useContext(AuthContext)
     const handleSignIn =(e)=>{
         e.preventDefault()
-        const form= e.target;
-        const email = form.email.value
-        const password = form.password.value
+        const form = e.target;
+        const email =form.email.value;
+        const password =form.password.value;
+        console.log(email,password)
         signInUser(email,password)
         .then(result=>{console.log(result.user)
         toast.success('Logged in successfully')
@@ -27,7 +28,7 @@ const Login = () => {
     </div>
     <div className="card rounded-3xl shrink-0 w-full py-[68px] max-w-sm bg-base-200">
       <h1 className="text-5xl text-center text-[#A55E3F] font-bold">Login now!</h1>
-      <form className="card-body">
+      <form onSubmit={handleSignIn} className="card-body">
         <div className="form-control">
           <label className="label">
             <span className="text-[#A55E3F] label-text">Email</span>
