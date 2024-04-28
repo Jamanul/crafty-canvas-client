@@ -1,6 +1,11 @@
+import { Rating } from '@smastrom/react-rating';
 import React from 'react';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const AllArtsCrafts = () => {
+    const allArtData =useLoaderData()
+    console.log(allArtData)
+    //const {_id,artUrl,artName,rating,price,stockStatus,subCategory,artDescription,processingTime}=singleArt;
     return (
         <div>
             <h2 className='text-5xl text-[#A55E3F] text-center mb-4 mt-10'>All Art Data</h2>
@@ -14,31 +19,26 @@ const AllArtsCrafts = () => {
         <th>Rating</th>
         <th>Sub Category</th>
         <th>Processing Time</th>
-        <th></th>
+        <th>More</th>
       </tr>
     </thead>
     <tbody>
-      {/* row 1 */}
-      <tr>
-        <th>1</th>
-        <td>Cy Ganderton</td>
-        <td>Quality Control Specialist</td>
-        <td>Blue</td>
-      </tr>
-      {/* row 2 */}
-      <tr>
-        <th>2</th>
-        <td>Hart Hagerty</td>
-        <td>Desktop Support Technician</td>
-        <td>Purple</td>
-      </tr>
-      {/* row 3 */}
-      <tr>
-        <th>3</th>
-        <td>Brice Swyre</td>
-        <td>Tax Accountant</td>
-        <td>Red</td>
-      </tr>
+    {
+        allArtData.map((singleArt,idx)=>
+            <tr  key={singleArt._id}>
+            <th>{idx+1}</th>
+            <td>{singleArt.artName}</td>
+            <td><Rating
+                  style={{ maxWidth: 100 }}
+                  value={singleArt.rating}
+                  readOnly
+                /></td>
+            <td>{singleArt.subCategory}</td>
+            <td>{singleArt.processingTime} days</td>
+            <td> <Link to={`../art/${singleArt._id}`}> <button className="btn bg-[#A55E3F] text-white">View details</button></Link> </td>
+          </tr> 
+        )
+      }
     </tbody>
   </table>
 </div>
