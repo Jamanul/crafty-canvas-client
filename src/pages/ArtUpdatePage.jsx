@@ -1,13 +1,15 @@
-import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
 import { Rating } from "@smastrom/react-rating";
-
-import "@smastrom/react-rating/style.css";
-import { toast } from "react-toastify";
+import { useContext, useState } from "react";
+import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../FirebaseAuth/AuthProvider";
+import { toast } from "react-toastify";
 
-const AddArtsCrafts = () => {
-  const {user}=useContext(AuthContext)
+
+const ArtUpdatePage = () => {
+    const singleArt =useLoaderData()
+    const {_id,artUrl,artName,price,artDescription,stockStatus,subCategory,processingTime,customization}=singleArt;
+    
+        const {user}=useContext(AuthContext)
   const [rating, setRating] = useState(0);
   //console.log(rating)
   const handleAddArts = (e) => {
@@ -36,8 +38,8 @@ const AddArtsCrafts = () => {
       userEmail,
       rating
     };
-    fetch('http://localhost:5000/all-arts',{
-        method: 'POST',
+    fetch(`http://localhost:5000/all-arts/${_id}`,{
+        method: 'PUT',
         headers:{
             'content-type': 'application/json'
         },
@@ -45,18 +47,18 @@ const AddArtsCrafts = () => {
     })
     .then(res=>res.json())
     .then(data=>{console.log(data)
-    if(data.insertedId){
-        toast.success('Art added Successfully')
+    if(data.modifiedCount){
+        toast.success('Art Updated Successfully')
     }
     })
-    console.log(art);
+    //console.log(art);
   };
   return (
     <div className="min-h-screen">
       <div className="hero-content  flex-col lg:flex-row-reverse">
         <div className="card rounded-3xl shrink-0 w-full py-10 bg-base-200">
           <h1 className="text-5xl text-center text-[#A55E3F] font-bold">
-            Add Your Arts & Crafts
+            Update Your Arts & Crafts
           </h1>
           <form onSubmit={handleAddArts} className="card-body">
             <div className="form-control">
@@ -211,7 +213,6 @@ const AddArtsCrafts = () => {
                 placeholder="User Name"
                 className="input  text-[#A55E3F] bg-[#A55E3F1A] input-bordered"
                 defaultValue={user?.displayName}
-                required
               />
             </div>
             <div className="form-control">
@@ -224,18 +225,18 @@ const AddArtsCrafts = () => {
                 placeholder="User Email"
                 className="input text-[#A55E3F] bg-[#A55E3F1A] input-bordered"
                 defaultValue={user?.email}
-                required
+                
               />
             </div>
 
             <div className="form-control mt-6">
-              <button className="btn text-white bg-[#A55E3F]">Add Art</button>
+              <button className="btn text-white bg-[#A55E3F]">Update Art</button>
             </div>
           </form>
         </div>
       </div>
     </div>
-  );
+    );
 };
 
-export default AddArtsCrafts;
+export default ArtUpdatePage;

@@ -15,6 +15,7 @@ import AllArtsCrafts from './pages/AllArtsCrafts.jsx';
 import AddArtsCrafts from './pages/AddArtsCrafts.jsx';
 import MyArtsCrafts from './pages/MyArtsCrafts.jsx';
 import ArtDetails from './pages/ArtDetails.jsx';
+import ArtUpdatePage from './pages/ArtUpdatePage.jsx';
 
 
 const router = createBrowserRouter([
@@ -47,11 +48,19 @@ const router = createBrowserRouter([
       },
       {
         path:"/my-arts-craft-list",
-        element:<MyArtsCrafts></MyArtsCrafts>
+        element:<MyArtsCrafts></MyArtsCrafts>,
+         //loader: ({params})=>fetch(`http://localhost:5000/all-arts/${params.id}`),
+        
+        
       },
       {
         path:'/art/:id',
         element:<ArtDetails></ArtDetails>,
+        loader: ({params})=>fetch(`http://localhost:5000/all-arts/${params.id}`)
+      },
+      {
+        path:"/art-update/:id",
+        element:<ArtUpdatePage></ArtUpdatePage>,
         loader: ({params})=>fetch(`http://localhost:5000/all-arts/${params.id}`)
       }
     ]

@@ -8,7 +8,7 @@ const AllArtsCrafts = () => {
     //const {_id,artUrl,artName,rating,price,stockStatus,subCategory,artDescription,processingTime}=singleArt;
     return (
         <div>
-            <h2 className='text-5xl text-[#A55E3F] text-center mb-4 mt-10'>All Art Data</h2>
+            <h2 className='text-5xl text-[#A55E3F] text-center mb-4 mt-10'>All Arts & Crafts </h2>
             <div className="overflow-x-auto">
   <table className="table">
     {/* head */}

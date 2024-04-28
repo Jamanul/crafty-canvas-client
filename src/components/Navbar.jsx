@@ -19,7 +19,7 @@ const Navbar = () => {
     <li><NavLink to='/' className={({isActive})=>isActive ? 'text-[#A55E3F] border-b border-[#A55E3F] rounded-none bg-none':'text-[#A55E3F]'}>Home</NavLink></li>
     <li><NavLink to='all-arts-craft' className={({isActive})=>isActive ? 'text-[#A55E3F] border-b border-[#A55E3F] rounded-none bg-none':'text-[#A55E3F]'}>All Arts and Crafts</NavLink></li>
     <li><NavLink to='add-arts-craft'  className={({isActive})=>isActive ? 'text-[#A55E3F] border-b border-[#A55E3F] rounded-none bg-none':'text-[#A55E3F]'}>Add Craft Items</NavLink></li>
-    <li><NavLink to='my-arts-craft-list' className={({isActive})=>isActive ? 'text-[#A55E3F] border-b border-[#A55E3F] rounded-none bg-none':'text-[#A55E3F]'}>My Art&Craft List</NavLink></li>
+    <li><NavLink to={`my-arts-craft-list`} className={({isActive})=>isActive ? 'text-[#A55E3F] border-b border-[#A55E3F] rounded-none bg-none':'text-[#A55E3F]'}>My Art&Craft List</NavLink></li>
     {user? '':<> 
     <li><NavLink to='register' className={({isActive})=>isActive ? 'text-[#A55E3F] border-b border-[#A55E3F] rounded-none bg-none':'text-[#A55E3F]'}>Register</NavLink></li></>}
     </>

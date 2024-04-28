@@ -15,7 +15,7 @@ const Home = () => {
                 <h2 className='text-xl mt-4 mb-8 text-center text-[#A55E3F]'>Here you can see some of the best artworks we have done. We are not done yet. We are working hard so that we can excel even further.</h2>
                 <div className='grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
                     {
-                        allArtData.map(singleArt=><ArtCard key={singleArt._id} singleArt={singleArt}></ArtCard>)
+                        allArtData.slice(0,6).map(singleArt=><ArtCard key={singleArt._id} singleArt={singleArt}></ArtCard>)
                     }
                 </div>
             </div>
