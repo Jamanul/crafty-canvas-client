@@ -1,0 +1,32 @@
+[
+  {
+    "id": "landscape_painting",
+    "name": "Landscape Painting",
+    "image": "landscape_painting.jpg"
+  },
+  {
+    "id": "portrait_drawing",
+    "name": "Portrait Drawing",
+    "image": "portrait_drawing.jpg"
+  },
+  {
+    "id": "watercolor_painting",
+    "name": "Watercolor Painting",
+    "image": "watercolor_painting.jpg"
+  },
+  {
+    "id": "oil_painting",
+    "name": "Oil Painting",
+    "image": "oil_painting.jpg"
+  },
+  {
+    "id": "charcoal_sketching",
+    "name": "Charcoal Sketching",
+    "image": "charcoal_sketching.jpg"
+  },
+  {
+    "id": "cartoon_drawing",
+    "name": "Cartoon Drawing",
+    "image": "cartoon_drawing.jpg"
+  }
+]

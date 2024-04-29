@@ -2,6 +2,7 @@
 import { useLoaderData } from 'react-router-dom';
 import Slider from '../components/Slider';
 import ArtCard from '../components/ArtCard';
+import ArtCategory from '../components/ArtCategory';
 
 const Home = () => {
     const allArtData =useLoaderData()
@@ -18,6 +19,9 @@ const Home = () => {
                         allArtData.slice(0,6).map(singleArt=><ArtCard key={singleArt._id} singleArt={singleArt}></ArtCard>)
                     }
                 </div>
+            </div>
+            <div>
+                <ArtCategory></ArtCategory>
             </div>
         </div>
     );

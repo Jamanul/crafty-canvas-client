@@ -16,12 +16,17 @@ import AddArtsCrafts from './pages/AddArtsCrafts.jsx';
 import MyArtsCrafts from './pages/MyArtsCrafts.jsx';
 import ArtDetails from './pages/ArtDetails.jsx';
 import ArtUpdatePage from './pages/ArtUpdatePage.jsx';
+import ErrorPage from './pages/ErrorPage.jsx';
+import ProtectedRoute from './Routes/ProtectedRoute.jsx';
+import SubCategoryPage from './pages/SubCategoryPage.jsx';
+import AddSubCategory from './pages/AddSubCategory.jsx';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement: <ErrorPage></ErrorPage>,
     children:[
       {
         path:'/',
@@ -44,24 +49,32 @@ const router = createBrowserRouter([
       },
       {
         path:"/add-arts-craft",
-        element:<AddArtsCrafts></AddArtsCrafts>
+        element:<ProtectedRoute><AddArtsCrafts></AddArtsCrafts></ProtectedRoute> 
       },
       {
         path:"/my-arts-craft-list",
-        element:<MyArtsCrafts></MyArtsCrafts>,
+        element:<ProtectedRoute><MyArtsCrafts></MyArtsCrafts></ProtectedRoute>,
          //loader: ({params})=>fetch(`http://localhost:5000/all-arts/${params.id}`),
         
         
       },
       {
         path:'/art/:id',
-        element:<ArtDetails></ArtDetails>,
+        element:<ProtectedRoute><ArtDetails></ArtDetails></ProtectedRoute> ,
         loader: ({params})=>fetch(`http://localhost:5000/all-arts/${params.id}`)
       },
       {
         path:"/art-update/:id",
-        element:<ArtUpdatePage></ArtUpdatePage>,
+        element:<ProtectedRoute><ArtUpdatePage></ArtUpdatePage></ProtectedRoute> ,
         loader: ({params})=>fetch(`http://localhost:5000/all-arts/${params.id}`)
+      },
+      {
+        path:"/subCategory/:id",
+        element:<SubCategoryPage></SubCategoryPage>,
+      },
+      {
+        path:'add-subCategory',
+        element:<AddSubCategory></AddSubCategory>
       }
     ]
   },
