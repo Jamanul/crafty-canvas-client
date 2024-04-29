@@ -20,6 +20,7 @@ import ErrorPage from './pages/ErrorPage.jsx';
 import ProtectedRoute from './Routes/ProtectedRoute.jsx';
 import SubCategoryPage from './pages/SubCategoryPage.jsx';
 import AddSubCategory from './pages/AddSubCategory.jsx';
+import SubCategoryDetailsPage from './pages/SubCategoryDetailsPage.jsx';
 
 
 const router = createBrowserRouter([
@@ -75,6 +76,11 @@ const router = createBrowserRouter([
       {
         path:'add-subCategory',
         element:<AddSubCategory></AddSubCategory>
+      },
+      {
+        path:"/sub-category-art/:id",
+        element:<SubCategoryDetailsPage></SubCategoryDetailsPage>,
+        loader: ({params})=>fetch(`http://localhost:5000/all-sub-category/${params.id}`)
       }
     ]
   },
