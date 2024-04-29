@@ -15,7 +15,7 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 const Slider = () => {
     const [artData,setArtData]= useState([])
     useEffect(()=>{
-        fetch('/artData.json')
+      fetch('http://localhost:5000/all-banner-data')
         .then(res=>res.json())
         .then(data=>setArtData(data))
     },[])
@@ -39,7 +39,7 @@ const Slider = () => {
         {
         artData.map(data=><SwiperSlide className="rounded-3xl" key={data.id}><div className="relative"><img src={data.image} alt="" />
         <div className="absolute top-3/4 left-2/4">
-            <p className="text-white md:text-4xl">{data.item_name}</p>
+            <p className="text-white md:text-4xl">{data.name}</p>
         </div>
         
         </div></SwiperSlide>)

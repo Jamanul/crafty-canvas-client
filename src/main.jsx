@@ -79,7 +79,7 @@ const router = createBrowserRouter([
       },
       {
         path:"/sub-category-art/:id",
-        element:<SubCategoryDetailsPage></SubCategoryDetailsPage>,
+        element:<ProtectedRoute><SubCategoryDetailsPage></SubCategoryDetailsPage></ProtectedRoute>,
         loader: ({params})=>fetch(`http://localhost:5000/all-sub-category/${params.id}`)
       }
     ]

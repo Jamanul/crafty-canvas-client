@@ -13,30 +13,19 @@ const AddSubCategory = () => {
   const handleAddArts = (e) => {
     e.preventDefault();
     const form = e.target;
-    const artName = form.artName.value;
-    const price = form.price.value;
-    const artUrl = form.artUrl.value;
+    const id = form.id.value;
+    const name = form.name.value;
+    const image = form.image.value;
     const artDescription = form.artDescription.value;
-    const subCategory = form.subCategory.value;
-    const processingTime = form.processingTime.value;
-    const customization = form.customization.value;
-    const stockStatus = form.stockStatus.value;
-    const userName = form.userName.value;
-    const userEmail = form.userEmail.value;
+    
     const art = {
-      artName,
-      price,
-      artUrl,
-      artDescription,
-      subCategory,
-      processingTime,
-      customization,
-      stockStatus,
-      userName,
-      userEmail,
-      rating
+      id,
+      name,
+      image,
+      
+      
     };
-    fetch('http://localhost:5000/all-sub-category',{
+    fetch('http://localhost:5000/all-banner-data',{
         method: 'POST',
         headers:{
             'content-type': 'application/json'
@@ -61,62 +50,37 @@ const AddSubCategory = () => {
           <form onSubmit={handleAddArts} className="card-body">
             <div className="form-control">
               <label className="label">
-                <span className="text-[#A55E3F] label-text">Art name</span>
+                <span className="text-[#A55E3F] label-text">id</span>
               </label>
               <input
                 type="text"
-                name="artName"
-                placeholder="Art Name"
+                name="id"
+                placeholder="id"
                 className="input text-[#A55E3F] bg-[#A55E3F1A] input-bordered"
                 required
               />
             </div>
-            <div className="flex gap-6">
-              {/* sub category */}
-
-              <label className="form-control  w-1/2">
-                <div className="label">
-                  <span className="label-text text-[#A55E3F]">
-                    Pick Your Category
-                  </span>
-                </div>
-                <select
-                  name="subCategory"
-                  className="select bg-[#A55E3F1A] text-[#A55E3F] select-bordered"
-                >
-                  <option disabled selected>
-                    Pick one
-                  </option>
-                  <option>Landscape painting</option>
-                  <option>Portrait drawing</option>
-                  <option>Water Color painting</option>
-                  <option>Oil painting</option>
-                  <option>Charcoal sketching</option>
-                  <option>Cartoon Drawing</option>
-                </select>
-              </label>
-              {/**-------------- */}
-              <div className="form-control w-1/2">
+                <div>
                 <label className="label">
-                  <span className="text-[#A55E3F] label-text">Price</span>
+                  <span className="text-[#A55E3F] label-text">name</span>
                 </label>
                 <input
                   type="text"
-                  name="price"
-                  placeholder="Price"
+                  name="name"
+                  placeholder="name"
                   className="input text-[#A55E3F] bg-[#A55E3F1A] input-bordered"
                   required
                 />
               </div>
-            </div>
+            
             <div className="form-control">
               <label className="label">
-                <span className="text-[#A55E3F] label-text">Art Photo Url</span>
+                <span className="text-[#A55E3F] label-text">image</span>
               </label>
               <input
                 type="text"
-                name="artUrl"
-                placeholder="Art Photo Url"
+                name="image"
+                placeholder="image"
                 className="input text-[#A55E3F] bg-[#A55E3F1A] input-bordered"
                 required
               />
@@ -132,99 +96,10 @@ const AddSubCategory = () => {
                 name="artDescription"
                 placeholder="Art Description"
                 className="input text-[#A55E3F] bg-[#A55E3F1A] input-bordered"
-                required
+                
               />
             </div>
-            <div className="flex gap-6">
-              <div className="w-1/2 form-control">
-                <label className="label">
-                  <span className="text-[#A55E3F] label-text">Rating</span>
-                </label>
-                <Rating
-                  style={{ maxWidth: 150 }}
-                  value={rating}
-                  onChange={setRating}
-                  isRequired
-                />
-              </div>
-
-              <div className="w-1/2 form-control">
-                <label className="label">
-                  <span className="text-[#A55E3F] label-text">
-                    Processing Time
-                  </span>
-                </label>
-                <input
-                  type="text"
-                  name="processingTime"
-                  placeholder="Processing Time"
-                  className="input text-[#A55E3F] bg-[#A55E3F1A] input-bordered"
-                  required
-                />
-              </div>
-            </div>
-            <div className="flex gap-6">
-              <label className="form-control w-1/2">
-                <div className="label">
-                  <span className="label-text text-[#A55E3F]">
-                    Customization
-                  </span>
-                </div>
-                <select
-                  name="customization"
-                  className="select bg-[#A55E3F1A] text-[#A55E3F] select-bordered"
-                >
-                  <option disabled selected>
-                    Pick one
-                  </option>
-                  <option>Yes</option>
-                  <option>No</option>
-                </select>
-              </label>
-
-              <label className="form-control w-1/2">
-                <div className="label">
-                  <span className="label-text text-[#A55E3F]">
-                    Stock Status
-                  </span>
-                </div>
-                <select
-                  name="stockStatus"
-                  className="select bg-[#A55E3F1A] text-[#A55E3F] select-bordered"
-                >
-                  <option disabled selected>
-                    Pick one
-                  </option>
-                  <option>In stock</option>
-                  <option>Made to Order</option>
-                </select>
-              </label>
-            </div>
-
-            <div className="form-control">
-              <label className="label">
-                <span className="text-[#A55E3F] label-text">User Name</span>
-              </label>
-              <input
-                type="text"
-                name="userName"
-                placeholder="User Name"
-                className="input  text-[#A55E3F] bg-[#A55E3F1A] input-bordered"
-             
-              />
-            </div>
-            <div className="form-control">
-              <label className="label">
-                <span className="text-[#A55E3F] label-text">User Email</span>
-              </label>
-              <input
-                type="email"
-                name="userEmail"
-                placeholder="User Email"
-                className="input text-[#A55E3F] bg-[#A55E3F1A] input-bordered"
-              
-              />
-            </div>
+            
 
             <div className="form-control mt-6">
               <button className="btn text-white bg-[#A55E3F]">Add SubCategory</button>
