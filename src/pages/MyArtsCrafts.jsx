@@ -9,7 +9,7 @@ const MyArtsCrafts = () => {
   const [customizedData,setCustomizedData]=useState([])
   //console.log(user)
   useEffect(() => {
-    fetch(`http://localhost:5000/my-arts/${user?.email}`)
+    fetch(`https://crafty-canvas-server.vercel.app/my-arts/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setArtData(data);

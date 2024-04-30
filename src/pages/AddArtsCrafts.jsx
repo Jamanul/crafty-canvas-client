@@ -36,7 +36,7 @@ const AddArtsCrafts = () => {
       userEmail,
       rating
     };
-    fetch('http://localhost:5000/all-arts',{
+    fetch('https://crafty-canvas-server.vercel.app/all-arts',{
         method: 'POST',
         headers:{
             'content-type': 'application/json'

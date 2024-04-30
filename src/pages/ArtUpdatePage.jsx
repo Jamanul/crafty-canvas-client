@@ -38,7 +38,7 @@ const ArtUpdatePage = () => {
       userEmail,
       rating
     };
-    fetch(`http://localhost:5000/all-arts/${_id}`,{
+    fetch(`https://crafty-canvas-server.vercel.app/all-arts/${_id}`,{
         method: 'PUT',
         headers:{
             'content-type': 'application/json'

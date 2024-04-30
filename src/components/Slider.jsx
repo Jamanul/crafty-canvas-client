@@ -15,7 +15,7 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 const Slider = () => {
     const [artData,setArtData]= useState([])
     useEffect(()=>{
-      fetch('http://localhost:5000/all-banner-data')
+      fetch('https://crafty-canvas-server.vercel.app/all-banner-data')
         .then(res=>res.json())
         .then(data=>setArtData(data))
     },[])

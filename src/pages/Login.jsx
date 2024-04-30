@@ -5,7 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
-    const {signInUser}=useContext(AuthContext)
+    const {signInUser,loginGoogle,loginGithub}=useContext(AuthContext)
     const navigate =useNavigate()
     const location =useLocation()
     const handleSignIn =(e)=>{
@@ -23,13 +23,33 @@ const Login = () => {
         toast.error('Use right credential')
         })
     }
+  const handleGoogleSignIn=()=>{
+    loginGoogle()
+    .then(result=>{console.log(result.user)
+      toast.success('Logged in successfully')
+      navigate(location.state || '/')
+      })
+      .catch(error=>{console.log(error)
+      toast.error('Use right credential')
+      })
+  }
+  const handleGithubSignIn=()=>{
+    loginGithub()
+    .then(result=>{console.log(result.user)
+      toast.success('Logged in successfully')
+      navigate(location.state || '/')
+      })
+      .catch(error=>{console.log(error)
+      toast.error('Use right credential')
+      })
+  }
     return (
         <div className="hero min-h-screen ">
   <div className="hero-content  flex-col lg:flex-row-reverse">
     <div className="text-center lg:text-left">
       <img className='rounded-3xl' src="https://i.ibb.co/r4Kpgnb/4-HFr9r-TGZ.jpg" alt="4-HFr9r-TGZ" border="0"/>
     </div>
-    <div className="card rounded-3xl shrink-0 w-full py-[68px] max-w-sm bg-base-200">
+    <div className="card rounded-3xl shrink-0 w-full py-[40px] max-w-sm bg-base-200">
       <h1 className="text-5xl text-center text-[#A55E3F] font-bold">Login now!</h1>
       <form onSubmit={handleSignIn} className="card-body">
         <div className="form-control">
@@ -51,6 +71,10 @@ const Login = () => {
           <button className="btn text-white bg-[#A55E3F]">Login</button>
         </div>
       </form>
+      <div className='flex px-8 justify-between mb-4'>
+      <button onClick={handleGoogleSignIn} className="btn text-white bg-[#A55E3F]">Google</button>
+      <button onClick={handleGithubSignIn} className="btn text-white bg-[#A55E3F]">Github</button>
+      </div>
       <div>
             <p className='text-[#A55E3F] ml-8'>New here? <Link className='font-bold' to='/register'>Click here to Register</Link></p>
       </div>

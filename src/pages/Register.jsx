@@ -5,7 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
-    const {createUser,user,setUser,updateUser,loading}=useContext(AuthContext)
+    const {createUser,user,setUser,updateUser,loader}=useContext(AuthContext)
     console.log(createUser)
     const handleRegister=(e)=>{
         e.preventDefault()
@@ -24,7 +24,7 @@ const Register = () => {
         createUser(email,password,name,photoUrl)
         .then(result=>{console.log(result.user)
             updateUser(name,photoUrl)
-            if (loading) {
+            if (loader) {
                 return (
                   <div className="min-h-screen flex items-center justify-center">
                     <span className="loading loading-spinner loading-lg"></span>

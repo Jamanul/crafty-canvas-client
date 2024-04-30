@@ -32,7 +32,7 @@ const router = createBrowserRouter([
       {
         path:'/',
         element:<Home></Home>,
-        loader: ()=>fetch('http://localhost:5000/all-arts')
+        loader: ()=>fetch('https://crafty-canvas-server.vercel.app/all-arts')
 
       },
       {
@@ -46,7 +46,7 @@ const router = createBrowserRouter([
       {
         path:"/all-arts-craft",
         element:<AllArtsCrafts></AllArtsCrafts>,
-        loader: ()=>fetch('http://localhost:5000/all-arts')
+        loader: ()=>fetch('https://crafty-canvas-server.vercel.app/all-arts')
       },
       {
         path:"/add-arts-craft",
@@ -55,19 +55,19 @@ const router = createBrowserRouter([
       {
         path:"/my-arts-craft-list",
         element:<ProtectedRoute><MyArtsCrafts></MyArtsCrafts></ProtectedRoute>,
-         //loader: ({params})=>fetch(`http://localhost:5000/all-arts/${params.id}`),
+         //loader: ({params})=>fetch(`https://crafty-canvas-server.vercel.app/all-arts/${params.id}`),
         
         
       },
       {
         path:'/art/:id',
         element:<ProtectedRoute><ArtDetails></ArtDetails></ProtectedRoute> ,
-        loader: ({params})=>fetch(`http://localhost:5000/all-arts/${params.id}`)
+        loader: ({params})=>fetch(`https://crafty-canvas-server.vercel.app/all-arts/${params.id}`)
       },
       {
         path:"/art-update/:id",
         element:<ProtectedRoute><ArtUpdatePage></ArtUpdatePage></ProtectedRoute> ,
-        loader: ({params})=>fetch(`http://localhost:5000/all-arts/${params.id}`)
+        loader: ({params})=>fetch(`https://crafty-canvas-server.vercel.app/all-arts/${params.id}`)
       },
       {
         path:"/subCategory/:id",
@@ -80,7 +80,7 @@ const router = createBrowserRouter([
       {
         path:"/sub-category-art/:id",
         element:<ProtectedRoute><SubCategoryDetailsPage></SubCategoryDetailsPage></ProtectedRoute>,
-        loader: ({params})=>fetch(`http://localhost:5000/all-sub-category/${params.id}`)
+        loader: ({params})=>fetch(`https://crafty-canvas-server.vercel.app/all-sub-category/${params.id}`)
       }
     ]
   },

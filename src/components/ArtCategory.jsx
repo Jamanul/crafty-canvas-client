@@ -4,7 +4,7 @@ import SubCategoryCard from "./SubCategoryCard";
 const ArtCategory = () => {
     const [artData,setArtData]= useState([])
     useEffect(()=>{
-        fetch('http://localhost:5000/all-sub-category-card')
+        fetch('https://crafty-canvas-server.vercel.app/all-sub-category-card')
         .then(res=>res.json())
         .then(data=>setArtData(data))
     },[])

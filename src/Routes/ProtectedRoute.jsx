@@ -3,9 +3,9 @@ import { AuthContext } from '../FirebaseAuth/AuthProvider';
 import { Navigate, useLocation } from 'react-router-dom';
 
 const ProtectedRoute = ({children}) => {
-    const {loading,user}=useContext(AuthContext)
+    const {loader,user}=useContext(AuthContext)
     const location =useLocation()
-    if(loading){
+    if(loader){
         return <div className="min-h-screen flex items-center justify-center"><span className="loading loading-spinner loading-lg"></span></div>
     }
     if(user){

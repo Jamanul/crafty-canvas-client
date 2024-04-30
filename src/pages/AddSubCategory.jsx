@@ -25,7 +25,7 @@ const AddSubCategory = () => {
       
       
     };
-    fetch('http://localhost:5000/all-banner-data',{
+    fetch('https://crafty-canvas-server.vercel.app/all-banner-data',{
         method: 'POST',
         headers:{
             'content-type': 'application/json'

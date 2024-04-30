@@ -10,7 +10,7 @@ const SubCategoryPage = () => {
     console.log(id)
     
     useEffect(()=>{
-        fetch( `http://localhost:5000/my-sub-category/${id}`)
+        fetch( `https://crafty-canvas-server.vercel.app/my-sub-category/${id}`)
         .then(res=>res.json())
         .then(data=>{
         setArtData(data)
