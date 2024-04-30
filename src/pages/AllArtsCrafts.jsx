@@ -14,28 +14,28 @@ const AllArtsCrafts = () => {
     {/* head */}
     <thead>
       <tr>
-        <th>No</th>
-        <th>Art Name</th>
+        <th  className='hidden md:block'>No</th>
+        <th >Art Name</th>
         <th>Rating</th>
-        <th>Sub Category</th>
-        <th>Processing Time</th>
-        <th>More</th>
+        <th >Sub Category</th>
+        <th  className='hidden md:block'>Processing Time</th>
+        <th >More</th>
       </tr>
     </thead>
     <tbody>
     {
         allArtData.map((singleArt,idx)=>
             <tr  key={singleArt._id}>
-            <th>{idx+1}</th>
-            <td>{singleArt.artName}</td>
-            <td><Rating
+            <th className='hidden md:block text-[#A55E3F]'>{idx+1}</th>
+            <td className='text-[#A55E3F]'>{singleArt.artName}</td>
+            <td className='text-[#A55E3F]'><Rating
                   style={{ maxWidth: 100 }}
                   value={singleArt.rating}
                   readOnly
                 /></td>
-            <td>{singleArt.subCategory}</td>
-            <td>{singleArt.processingTime} days</td>
-            <td> <Link to={`../art/${singleArt._id}`}> <button className="btn bg-[#A55E3F] text-white">View details</button></Link> </td>
+            <td  className='hidden md:block text-[#A55E3F]'>{singleArt.subCategory}</td>
+            <td className='text-[#A55E3F]'>{singleArt.processingTime} days</td>
+            <td className='text-[#A55E3F]'> <Link to={`../art/${singleArt._id}`}> <button className="btn bg-[#A55E3F] text-white">View details</button></Link> </td>
           </tr> 
         )
       }
