@@ -1,6 +1,33 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The name of my website is crafty canvas 
+
+Live url is : https://crafty-canvas-1a5de.web.app
+
+The 5 feature of my website is 
+ - the website has light theme and dark theme
+ - you can add you own artwork
+ - you can create a user and save your artwork 
+ - you can see artwork by their subcategory.
+ - you can update your art work.
+ - you can delete your art work.
+
+
+ the package i have used are
+ - React-simple-typewriter
+ - 
+
+
+
+
+
+
+
+
+
+
+
+
 
 Currently, two official plugins are available:
 
