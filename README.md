@@ -15,8 +15,9 @@ The 5 feature of my website is
 
  the package i have used are
  - React-simple-typewriter
- - 
+ - React Awesome Reveal.
 
+the Category i have used is 'Painting and Drawing'
 
 
 
